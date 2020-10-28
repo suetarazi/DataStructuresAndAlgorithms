@@ -32,14 +32,14 @@ namespace LongestSubstringWithSameLettersAfterReplacement
                 }
 
                 //get the character with the largest value from the map
-                int maxRepeatLetterCount = Math.Max(maxRepeatLetterCount, map.TryGetValue(windowEnd));
+                maxRepeatLetterCount = Math.Max(maxRepeatLetterCount, map[rightChar]);
 
                 //current window size is from windowStart to windowEnd, so overall we have a letter that is repeating 'maxRepeatLetterCount' times. So, we therefore have a window with maxRepeatLetterCount times of one letter and the remaining letters we should try and replace. If the remaining letters are > k, then we need to shrink our window since we can only replace no more than k letters. 
                 if (windowEnd - windowStart + 1 - maxRepeatLetterCount > k)
                 {
                     char leftChar = str[windowStart];
 
-                    map.Add[leftChar] - 1;
+                    map[leftChar] -= 1;
 
                     windowStart++;
                 }
