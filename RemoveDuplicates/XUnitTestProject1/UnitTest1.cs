@@ -27,5 +27,27 @@ namespace XUnitTestProject1
             int expected = 2;
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void Test3()
+        {
+            int[] testArr = new int[] { 3, 2, 3, 6, 3, 10, 9, 3 };
+            int testKey = 3;
+            Program p = new Program();
+            int actual = p.removeKey(testArr, testKey);
+            int expected = 4;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Test4()
+        {
+            int[] testArr = new int[] { 2, 11, 2, 2, 1 };
+            int testKey = 2;
+            Program p = new Program();
+            int actual = p.removeKey(testArr, testKey);
+            int expected = 2;
+            Assert.Equal(expected, actual);
+        }
     }
 }
