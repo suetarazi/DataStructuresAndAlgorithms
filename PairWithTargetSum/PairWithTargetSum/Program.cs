@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PairWithTargetSum
 {
@@ -51,7 +52,19 @@ namespace PairWithTargetSum
         /// <returns>array of indices</returns>
         public int[] useHashtableToSearch(int[] arr, int targetSum)
         {
-            return new int[] { -1, -1 };
+            Dictionary<int, int> table = new Dictionary<int, int>();  //make a table to store numbers in the array and their respective indices
+
+            for(int i=0; i < arr.Length; i++)
+            {
+                if (table.ContainsKey(targetSum - arr[i]))  
+                {
+                    return new int[] { table[targetSum - arr[i]], i }; //Bingo! We found Y = Target - X!
+                }
+                else
+                    table.Add(arr[i], i);  //put number and its index in the array
+            }
+
+            return new int[] { -1, -1 }; //pair not found
         }
     }
 }
