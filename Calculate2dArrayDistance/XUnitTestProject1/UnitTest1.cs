@@ -11,7 +11,7 @@ namespace XUnitTestProject1
         [Fact]
         public void Test1()
         {
-            string testString = "O__; _XT; ___";
+            string testString = "O__;_XT;___";
             Program p = new Program();
             int actual = p.calculateDistance(testString);
             int expected = 3;
