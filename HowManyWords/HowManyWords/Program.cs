@@ -9,16 +9,18 @@ namespace HowManyWords
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            string testString = "he is a good programmer, he won 865 competitions, but sometimes he dont. What do you think? All test-cases should pass. Done-done?";
+            string testString = ")}OJR 92ww. z )UPl 49e ]S  g. zrZEnQ  D. FoKp ]ow 1EceB 3oK }w ]CA? L 3LPbDN! trqJY 0sBmm. Nwn";
             //"jds dsaf lkdf kdsa fkldsf, adsbf ldka ads? asd bfdal ds bf[l. akf dhj ds 878 dwa WE DE 7475 dsfh ds RAMU 748 dj.";
             Program p = new Program();
-            p.howMany(testString);
+            p.howMany2(testString);
 
         }
 
+
+        //CONSTRAINTS: 0 < LENGTH OF INPUT STRING <= 10^5 
         public int howMany(string sentence)
         {
-            int wordCount = 0;
+            long wordCount = 0;
 
             //Regex rx2 = new Regex(@"\-");
             //MatchCollection containsHyphens = rx2.Matches(sentence);
@@ -33,7 +35,10 @@ namespace HowManyWords
 
             foreach (string s in words)
             {
-
+                //if(s.Contains('0' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9' ||'[' || ']' || '{' || '}' || '=' || '+' || ')' || '(' || '*' || '&' || '^' || '%' || '$' || '#' || '@' || '>' || '<' || '`'|| '~'))
+                //{
+                //    wordCount--;
+                //}
                 Regex rx3 = new Regex(@"\d|\[|\]|\{|\}|\=|\+|\)|\(|\*|\&|\^|\%|\$|\#|\@|\>|\<|\`|\~");
                 MatchCollection charsNotAllowed = rx3.Matches(s);
 
@@ -51,7 +56,7 @@ namespace HowManyWords
             //Console.WriteLine($"wordCount {wordCount} -= containsHyphens.Count {containsHyphens.Count}");
 
             Console.WriteLine($"wordCount is {wordCount}");
-            return wordCount;
+            return Convert.ToInt32(wordCount);
         }
 
         public int howMany2(string sentence)
@@ -59,13 +64,19 @@ namespace HowManyWords
             int wordCount = 0;
 
             string[] words = sentence.Split(new char[] { ' ' });
+            
+            //string[] words = sentence.Split(new char[] { ' ' });
             Console.WriteLine($"words.Length is {words.Length}");
+            
 
-
-            wordCount = words.Length;
 
             foreach (string s in words)
             {
+                if(s.Trim() != "")
+                {
+                    wordCount++;        
+                }
+
 
                 Regex rx3 = new Regex(@"\d|\[|\]|\{|\}|\=|\+|\)|\(|\*|\&|\^|\%|\$|\#|\@|\>|\<|\`|\~");
                 MatchCollection charsNotAllowed = rx3.Matches(s);
