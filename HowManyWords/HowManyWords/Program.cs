@@ -19,17 +19,27 @@ namespace HowManyWords
         {
             int wordCount = 0;
             
-            Regex rx = new Regex(@"[a-zA-Z-]");
-            rx.Match(sentence);
+            Regex rx = new Regex(@"\b[a-zA-Z]");
+            MatchCollection allWords =  rx.Matches(sentence);
+            
+
+            for(int count = 0; count < allWords.Count; count++)
+            {
+                Console.WriteLine($"allWords result is: {allWords[count].Value}");
+                Console.WriteLine($"the total count of allWords is {allWords.Count}");
+            }
+
+            Regex rx2 = new Regex(@"\-");
+            MatchCollection containsHyphens = rx2.Matches(sentence);
 
 
-            Console.WriteLine($"allWords result is: {sentence}");
+            for(int count = 0; count < containsHyphens.Count; count++)
+            {
+                Console.WriteLine($"containsHyphens result is: {containsHyphens[count].Value}");
+                Console.WriteLine($"the total count of hyphenated words is {containsHyphens.Count}");
+            }
 
-            Regex rx2 = new Regex(@"/\b -[a - zA - Z]/");
-            int containsHyphens = rx2.Match(sentence).Length;
-            Console.WriteLine($"containsHyphens result is: {containsHyphens}");
-
-            //wordCount = allWords - containsHyphens;
+            wordCount = allWords.Count - containsHyphens.Count;
             Console.WriteLine($"wordCount is: {wordCount}");
 
             //string[] words = sentence.Split(" ");
