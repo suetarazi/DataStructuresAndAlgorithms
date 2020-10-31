@@ -58,7 +58,7 @@ namespace HowManyWords
         {
             int wordCount = 0;
 
-            string[] words = sentence.Split(" ", ' ', StringSplitOptions.None);
+            string[] words = sentence.Split(new char[] { ' ' });
             Console.WriteLine($"words.Length is {words.Length}");
 
 
