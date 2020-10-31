@@ -9,8 +9,9 @@ namespace HowManyWords
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            string testString = "How many eggs are in a half-dozen, 13?";
-            Program p = new Program();
+            string testString = "he is a good programmer, he won 865 competitions, but sometimes he dont. What do you think? All test-cases should pass. Done-done?";
+              //"jds dsaf lkdf kdsa fkldsf, adsbf ldka ads? asd bfdal ds bf[l. akf dhj ds 878 dwa WE DE 7475 dsfh ds RAMU 748 dj.";
+              Program p = new Program();
             p.howMany(testString);
 
         }
@@ -18,44 +19,38 @@ namespace HowManyWords
         public int howMany(string sentence)
         {
             int wordCount = 0;
-            
-            Regex rx = new Regex(@"\b[a-zA-Z]");
-            MatchCollection allWords =  rx.Matches(sentence);
-            
 
-            for(int count = 0; count < allWords.Count; count++)
+            //Regex rx2 = new Regex(@"\-");
+            //MatchCollection containsHyphens = rx2.Matches(sentence);
+            //Console.WriteLine($"ContainsHyphens.Count is {containsHyphens.Count}");
+
+
+            string[] words = sentence.Split(" ", ' ', StringSplitOptions.None);
+            Console.WriteLine($"words.Length is {words.Length}");
+
+
+            wordCount = words.Length;
+
+            foreach (string s in words)
             {
-                Console.WriteLine($"allWords result is: {allWords[count].Value}");
-                Console.WriteLine($"the total count of allWords is {allWords.Count}");
+                
+                Regex rx3 = new Regex(@"\d|\[|\]|\{|\}|\=|\+|\)|\(|\*|\&|\^|\%|\$|\#|\@|\>|\<|\`|\~");
+                MatchCollection charsNotAllowed = rx3.Matches(s);
+
+                if (charsNotAllowed.Count != 0)
+                {
+                    Console.WriteLine($"This failed the if statement {s}!");
+                    wordCount--;
+
+                }
+
             }
 
-            Regex rx2 = new Regex(@"\-");
-            MatchCollection containsHyphens = rx2.Matches(sentence);
 
+            //wordCount -= containsHyphens.Count;
+            //Console.WriteLine($"wordCount {wordCount} -= containsHyphens.Count {containsHyphens.Count}");
 
-            for(int count = 0; count < containsHyphens.Count; count++)
-            {
-                Console.WriteLine($"containsHyphens result is: {containsHyphens[count].Value}");
-                Console.WriteLine($"the total count of hyphenated words is {containsHyphens.Count}");
-            }
-
-            wordCount = allWords.Count - containsHyphens.Count;
-            Console.WriteLine($"wordCount is: {wordCount}");
-
-            //string[] words = sentence.Split(" ");
-
-            //foreach (string s in words)
-            //{
-
-            //    if (test != null)
-            //    {
-            //        wordCount++;
-
-            //    }
-
-            //return wordCount;
-            //}
-
+            Console.WriteLine($"wordCount is {wordCount}");
             return wordCount;
         }
     }
