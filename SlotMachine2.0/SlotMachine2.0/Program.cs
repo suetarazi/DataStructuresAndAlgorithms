@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Text;
 
 namespace SlotMachine2
 {
@@ -53,45 +54,65 @@ namespace SlotMachine2
                 }
             }
 
-            for (int spin = 1; spin < history.Count; spin++)
+            //need to go through and do the following for each spin:
+            int spinRound = 1;
+            int spinMax = Convert.ToInt32(history[0]);
+    
+            while(spinRound < spinMax)
             {
-                //find the largest number in the dictionary
+
+            //find the largest number in the dictionary
                 biggestMapDigit = (int)spinMap.Keys.Max();
                 Console.WriteLine($"biggestKeyInMap is {biggestMapDigit}");
                 //add that number to totalSpins
                 totalSpins += biggestMapDigit;
 
+            for(int spin = 1; spin < history.Count; spin++)
+            {
                 //now find and remove the largest number in each row of the list from the dictionary
                 char[] digits = history[spin].ToCharArray();
                 List<double> numList = new List<double>();
-                
                 double biggestNum = 0;
+                
 
                 foreach (char d in digits)
                 {
                     numList.Add(char.GetNumericValue(d));
-                    
+                    Console.WriteLine($"this is being added to numList {char.GetNumericValue(d)} ");    
                 }
 
                 biggestNum = numList.Max();
                 Console.WriteLine($"the biggest num in the row is {biggestNum}");
                 
-                if (spinMap[biggestNum] == 1)
+                if(spinMap != null)
+                {
+
+                    if (spinMap[biggestNum] == 1)
                     {
+                    Console.WriteLine($"We are about to remove biggest num: {biggestNum}");
                         spinMap.Remove(biggestNum);
+                        numList.Remove(biggestNum);
                     }
                     else
                     {
                         spinMap[biggestNum] -= 1;
+                        numList.Remove(biggestNum);
+                    Console.WriteLine($"We just decremented biggestNum: {biggestNum}");
                     }
-                    
+                }
+
+                    StringBuilder sb = new StringBuilder();
+                    foreach(double num in numList)
+                    {
+                        sb.Append(num).Append("");
+                    }
+                    history[spin] = sb.ToString();
+
             }
-             
+
+                spinRound++;
+            }
             return totalSpins;
         }
     }
 }
-
-                //from x in spinMap
-                    //where x.Key == spinMap.Max(x => x.Key)
-                    //select x.Key;
