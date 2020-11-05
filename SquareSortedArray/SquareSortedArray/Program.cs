@@ -35,10 +35,25 @@ namespace SquareSortedArray
         /// </summary>
         /// <param name="arr"></param>
         /// <returns></returns>
-        public int[] makeSquares(int[] arr)
+        public int[] makeSquaresTwoPointer(int[] arr)
         {
             int[] squares = new int[arr.Length];
 
+            int highestSquareIdx = arr.Length - 1;
+            int left = 0;
+            int right = arr.Length - 1; 
+
+            while(left <= right)
+            {
+                int leftSquare = arr[left] * arr[left];
+                int rightSquare = arr[right] * arr[right];
+
+                if(leftSquare > rightSquare)
+                {
+                    squares[highestSquareIdx--] = rightSquare;
+                    right--;
+                }
+            }
 
             return squares;
         }
