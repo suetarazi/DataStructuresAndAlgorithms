@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitsIntoBaskets", "FruitsIntoBaskets\FruitsIntoBaskets.csproj", "{798B34A8-08ED-4652-95A4-C6BF7B2051D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{2BF062BB-0D49-4EFD-97AC-6EC76A56FBB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{798B34A8-08ED-4652-95A4-C6BF7B2051D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{798B34A8-08ED-4652-95A4-C6BF7B2051D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{798B34A8-08ED-4652-95A4-C6BF7B2051D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{798B34A8-08ED-4652-95A4-C6BF7B2051D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF062BB-0D49-4EFD-97AC-6EC76A56FBB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF062BB-0D49-4EFD-97AC-6EC76A56FBB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF062BB-0D49-4EFD-97AC-6EC76A56FBB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF062BB-0D49-4EFD-97AC-6EC76A56FBB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEB71FF2-0C20-4DC9-A5BA-7458FAE861DD}
+	EndGlobalSection
+EndGlobal
