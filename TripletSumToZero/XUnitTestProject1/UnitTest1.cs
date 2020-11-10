@@ -13,7 +13,9 @@ namespace XUnitTestProject1
             int[] testArr = new int[] { -3, 0, 1, 2, -1, 1, -2 };
             Program p = new Program();
             List<int[]> actual = p.searchTriplets(testArr);
-            List<int[]> expected = new List<int[]> { [-3, 1, 2], [-2, 0, 2], [-2, 1, 1], {-1, 0, 1} };
+            List<int[]> expected = new List<int[]> 
+            {  [-3, 1, 2], 
+               2, 0, 2, [-2, 1, 1], {-1, 0, 1} };
          }
 
         [Fact]
